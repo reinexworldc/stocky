@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #f8fafc;
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Agent Markdown – polished typography for assistant messages         */
+/* ------------------------------------------------------------------ */
+
+.agent-markdown {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1f2937; /* gray-800 */
+}
+
+/* Spacing between top-level children */
+.agent-markdown > * + * {
+  margin-top: 0.5rem;
+}
+
+/* Blockquote callout strip */
+.agent-markdown blockquote p {
+  margin-bottom: 0;
+}
+
+/* Nested list spacing */
+.agent-markdown ul ul,
+.agent-markdown ol ul,
+.agent-markdown ul ol,
+.agent-markdown ol ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+/* Table striped rows */
+.agent-markdown table tbody tr:nth-child(even) {
+  background-color: #f9fafb; /* gray-50 */
+}
+
+/* Subtle slide for NEW markdown blocks — only active while streaming. */
+.agent-markdown.is-streaming > *:last-of-type {
+  animation: md-slide-in 0.32s ease-out both;
+}
+
+@keyframes md-slide-in {
+  from {
+    transform: translateY(1.5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Streaming cursor – smooth sinusoidal blink */
+.streaming-cursor {
+  animation: cursor-blink 1s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+.inventory-card {
+  animation: inventory-card-enter 280ms ease-out both;
+}
+
+.details-drawer {
+  animation: drawer-slide-up 250ms ease-out both;
+}
+
+@keyframes inventory-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawer-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
