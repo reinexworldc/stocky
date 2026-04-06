@@ -1,5 +1,7 @@
 # Stocky
 
+![Alt text](stocky-gif.gif)
+
 ## Product in One Sentence
 
 An agent that reviews your entire warehouse every day, understands what's happening, and tells the owner or procurement manager exactly what needs to be done today — in plain human language, not spreadsheets.
